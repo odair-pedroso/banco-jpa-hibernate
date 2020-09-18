@@ -29,6 +29,14 @@ public class Movimentacao {
 				// por isso ManyToOne
 	private Conta conta;
 
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
 	public Long getId() {
 		return id;
 	}
