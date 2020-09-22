@@ -19,6 +19,7 @@ public class TestaRelacionamento {
 		conta.setAgencia(123123);
 		conta.setNumero(5670);
 		conta.setSaldo(300.0);
+		conta.setId(1L);
 		conta.setTitular("Leonardo");
 
 		Movimentacao movimentacao = new Movimentacao();
