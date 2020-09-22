@@ -14,7 +14,7 @@ public class CriaConta {
 
 		EntityManager em = emf.createEntityManager();
 		Conta conta = new Conta();
-		conta.setTitular("Marcia");
+		conta.setTitular("Leonardo");
 		conta.setNumero(1234);
 		conta.setAgencia(4321);
 		conta.setSaldo(100.0);
