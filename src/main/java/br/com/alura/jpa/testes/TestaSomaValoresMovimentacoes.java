@@ -1,11 +1,10 @@
 package br.com.alura.jpa.testes;
 
-import java.math.BigDecimal;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+
+import br.com.alura.jpa.modelo.dao.MovimentacaoDao;
 
 public class TestaSomaValoresMovimentacoes {
 
@@ -14,16 +13,8 @@ public class TestaSomaValoresMovimentacoes {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
 
-		String jpql = "select sum(m.valor) from Movimentacao m";
-		TypedQuery<BigDecimal> query = em.createQuery(jpql, BigDecimal.class);
-		BigDecimal somaDasMovimentacoes = query.getSingleResult();
-
-		String jpqlMedia = "select avg(m.valor) from Movimentacao m";
-		TypedQuery<Double> query2 = em.createQuery(jpqlMedia, Double.class);
-		Double mediaDasMovimentacoes = query2.getSingleResult();
-
-		System.out.println("A soma dos valores das movimentacoes é : " + somaDasMovimentacoes);
-		System.out.println("A média dos valores das movimentacoes é : " + mediaDasMovimentacoes);
+		MovimentacaoDao dao = new MovimentacaoDao(em);
+		System.out.println("A soma dos valores das movimentacoes é : " + dao.getSomaDasMovimentacoes());
 
 	}
 
